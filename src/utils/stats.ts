@@ -453,7 +453,7 @@ function generateMarkdownReport(structId: number[]): string {
   const total = totalJournals + totalConfs;
 
   const markdown = `
-# 📊 Rapport Bibliométrique - Équipe IRISA (${structId.join(", ")})
+# 📊 Rapport Bibliométrique : (${structId.join(", ")})
 *Généré le ${new Date().toLocaleDateString("fr-FR")}*
 
 ---

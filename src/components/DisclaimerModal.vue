@@ -39,7 +39,7 @@
             leave-from-class="opacity-100 translate-y-0 sm:scale-100"
             leave-to-class="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
           >
-            <div v-if="isOpen" class="relative w-full max-w-lg bg-white rounded-2xl shadow-2xl overflow-hidden text-left border border-slate-100">
+            <div v-if="isOpen" class="relative w-full  bg-white rounded-2xl shadow-2xl overflow-hidden text-left border border-slate-100">
               
               <!-- En-tête de la modale -->
               <div class="bg-amber-50 px-6 py-4 border-b border-amber-100 flex items-center gap-3">
@@ -54,7 +54,11 @@
               <!-- Contenu -->
               <div class="px-6 py-5 text-slate-600 space-y-4 text-sm md:text-base leading-relaxed">
                 <p>
-                  <strong>Prudence avec les données générées :</strong> L'algorithme de <em>matching</em> entre les noms des conférences issues de HAL et ceux de la base CORE est très complexe à fiabiliser à 100% (variations orthographiques, acronymes, etc.). Il est donc jugé <strong>peu robuste</strong> dans sa forme automatisée.
+                  <strong>Prudence avec les données générées :</strong> L'algorithme de <em>matching</em> entre les noms des conférences issues de HAL et ceux de la base CORE est très complexe à fiabiliser à 100% (variations orthographiques, acronymes, etc.). Il est donc jugé <strong>peu robuste</strong> dans sa forme automatisée. 
+                </p>
+                <p>
+                  Plusieurs conférences A* ou A ont des types de papier courts, qui n'ont pas le même prestige que les papiers longs. Parfois, c'est évident dans le titre, mais pas toujours (parfois ça se voit dans le nombre de pages seulement).
+                  Ça ne veut bien sûr pas dire qu'il ne faut pas les mettre en avant, mais en faisant attention à ne pas donner l'impression qu'on essaie de tromper le lecteur. (Ce qui est toujours désagréable quand on est membre d'un comité, ici l'algo ne voir pas ses nuances ). Dans le même genre, certains papiers de workshop peuvent aussi passer pour des papiers de conf quand les méta-données sont mal remplies (On essaie de filtrer mais on manque aussi de robustesse sur ce point).
                 </p>
                 <p>
                   Il est indispensable de procéder à une <strong>vérification humaine</strong> de la classification. Les chiffres et classements fournis par cette application ne doivent <strong>en aucun cas</strong> être pris de manière brute pour des évaluations officielles.

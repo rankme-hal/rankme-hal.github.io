@@ -405,7 +405,17 @@ async function fetchAndAnalyzeHAL(
   console.log(`  - B  : ${stats.conferences.b}`);
   console.log(`  - C  : ${stats.conferences.c}`);
   console.log(`  - Non classé/Non matché : ${stats.conferences.unranked}`);
-  return res;
+categorizedConferences["A*"] =[];
+categorizedConferences["A"] =[]
+categorizedConferences["B"] =[]
+categorizedConferences["C"] =[]
+categorizedConferences["Unranked"] =[]
+categorizedJournals["Q1"] =[]
+categorizedJournals["Q2"] =[]
+categorizedJournals["Q3"] =[]
+categorizedJournals["Q4"] =[]
+categorizedJournals["Unranked"] =[] 
+return res;
 }
 
 // ==========================================
@@ -519,7 +529,9 @@ ${formatPaperList(categorizedJournals["Unranked"])}
   );
   return markdown;
 }
-  const basePath ="https://rankme-hal.github.io";
+
+
+const basePath ="https://rankme-hal.github.io";
 
 export async function initSJRCache(): Promise<Map<number, Map<string, SJRData>>> {
   const sjrMap2025 = await loadSJR(basePath+"/data/scimagojr_2025.csv");

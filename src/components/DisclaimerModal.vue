@@ -57,7 +57,7 @@
                   <strong>Prudence avec les données générées :</strong> L'algorithme de <em>matching</em> entre les noms des conférences issues de HAL et ceux de la base CORE est très complexe à fiabiliser à 100% (variations orthographiques, acronymes, etc.). Il est donc jugé <strong>peu robuste</strong> dans sa forme automatisée. 
                 </p>
                 <p>
-                  Plusieurs conférences A* ou A ont des types de papier courts, qui n'ont pas le même prestige que les papiers longs. Parfois, c'est évident dans le titre, mais pas toujours (parfois ça se voit dans le nombre de pages seulement).
+                  En outre, plusieurs conférences A* ou A ont des types de papier courts, qui n'ont pas le même prestige que les papiers longs. Parfois, c'est évident dans le titre, mais pas toujours (parfois ça se voit dans le nombre de pages seulement).
                   Ça ne veut bien sûr pas dire qu'il ne faut pas les mettre en avant, mais en faisant attention à ne pas donner l'impression qu'on essaie de tromper le lecteur. (Ce qui est toujours désagréable quand on est membre d'un comité, ici l'algo ne voir pas ses nuances ). Dans le même genre, certains papiers de workshop peuvent aussi passer pour des papiers de conf quand les méta-données sont mal remplies (On essaie de filtrer mais on manque aussi de robustesse sur ce point).
                 </p>
                 <p>

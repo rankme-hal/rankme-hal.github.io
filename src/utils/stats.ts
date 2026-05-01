@@ -518,7 +518,7 @@ ${formatPaperList(categorizedJournals["Unranked"])}
   );
   return markdown;
 }
-  const basePath ="http://localhost:4321";
+  const basePath ="https://rankme.hal.github.io";
 
 export async function initSJRCache(): Promise<Map<number, Map<string, SJRData>>> {
   const sjrMap2025 = await loadSJR(basePath+"/data/scimagojr_2025.csv");

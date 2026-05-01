@@ -285,7 +285,8 @@ async function fetchAndAnalyzeHAL(
     });
     const url = `https://api.archives-ouvertes.fr/search/?${params.toString()}`;
     console.log(`\n🔍 Interrogation HAL : ${url}\n`);
-
+ 
+    
     const response = await fetch(url);
     const data = await response.json();
     docs.push(...data.response.docs);

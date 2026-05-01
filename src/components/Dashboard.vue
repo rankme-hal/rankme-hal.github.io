@@ -2,7 +2,17 @@
   <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
     <!-- Colonne de gauche (Filtres) -->
     <div class="lg:col-span-4 lg:sticky lg:top-24 h-max">
-      <PublicationForm :isLoading="isLoading" @search="handleSearch" />
+      <PublicationForm 
+       v-model:isCollapsed="isFormCollapsed"
+      :isLoading="isLoading" @search="handleSearch" />
+           <!-- La nouvelle table des matières, visible uniquement si on a des résultats -->
+      <Transition
+        enter-active-class="transition duration-500 ease-out"
+        enter-from-class="opacity-0 -translate-y-4"
+        enter-to-class="opacity-100 translate-y-0"
+      >
+        <TableOfContents v-if="markdownResult && !isLoading" />
+      </Transition>
     </div>
 
     <!-- Colonne de droite (Résultats) -->
@@ -26,6 +36,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
+import TableOfContents from './TableOfContents.vue';
 import PublicationForm, { type FilterParams } from './PublicationForm.vue';
 import MdxContentEnhanced from './MdxContentEnhanced.vue'; // <-- Ton composant existant !
 import {initSJRCache,initCoreCache, callHal, type SJRData, type COREData} from '../utils/stats.ts'
@@ -34,9 +45,12 @@ const markdownResult = ref<string | null>(null);
 const isCacheInit = ref(false);
 let sjrData : Map<number, Map<string, SJRData>>;
 let  coreData : Map<number, Map<string, COREData>>;
+const isFormCollapsed = ref(false);
 
 const handleSearch = async (params: FilterParams) => {
   isLoading.value = true;
+  markdownResult.value = null; // Optionnel : masque les résultats précédents pendant la charge
+  
   try {
     if (!isCacheInit.value){
       sjrData  = await initSJRCache();
@@ -52,6 +66,7 @@ const handleSearch = async (params: FilterParams) => {
 //    await new Promise(resolve => setTimeout(resolve, 1500));
 //    markdownResult.value = `# Résultats pour ${params.idValue}\n\n- Publication 1 (CORE: A)\n- Publication 2 (SCIMAGO: Q1)`;
     markdownResult.value = msg
+    isFormCollapsed.value = true; // Replie le formulaire après la recherche
     }
   } catch (error) {
     console.error("Erreur lors de l'extraction", error);

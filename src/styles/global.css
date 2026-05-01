@@ -1,2 +1,10 @@
 @import "tailwindcss";
 @plugin '@tailwindcss/typography';
+  /* Masque la scrollbar tout en gardant le scroll fonctionnel */
+  .custom-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .custom-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }

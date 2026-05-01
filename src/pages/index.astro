@@ -1,15 +1,26 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Dashboard from '../components/Dashboard.vue';
+import DisclaimerModal from '../components/DisclaimerModal.vue';
+
 ---
 
 <Layout title="PubliMetrics - Extraction HAL/DBLP">
-	<div class="mb-8">
-		<h2 class="text-2xl font-bold text-slate-900">Extraction et Classement</h2>
-		<p class="text-slate-600 mt-1">
-			Générez des rapports de publications automatiquement classées via CORE et SCIMAGO.
-		</p>
+	<div class="mb-8 flex flex-col md:flex-row md:items-start justify-between gap-4">
+		<div>
+			<h2 class="text-2xl font-bold text-slate-900">Extraction et Classement</h2>
+			<p class="text-slate-600 mt-1 max-w-2xl">
+				Générez des rapports de publications automatiquement classées via CORE et SCIMAGO pour vos structures ou auteurs.
+			</p>
+		</div>
+		
+		<!-- Ajout du bouton d'avertissement ici -->
+        <!-- client:load est nécessaire pour que la modale Vue fonctionne -->
+		<div class="flex-shrink-0 mt-2 md:mt-0">
+			<DisclaimerModal client:load />
+		</div>
 	</div>
+
 
     <!-- On utilise client:load pour que Vue hydrate ce composant dès le chargement de la page -->
 	<Dashboard client:load />

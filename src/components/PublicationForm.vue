@@ -68,7 +68,7 @@
           <!-- ID Input -->
           <div>
             <label for="searchId" class="block text-sm font-medium text-slate-700 mb-1">
-              Identifiant {{ formData.idType === 'structure' ? 'de la structure' : "de l'auteur" }}
+              Identifiant {{ formData.idType === 'structure' ? 'de la structure' : "de l'auteur" }} <a href="https://aurehal.archives-ouvertes.fr/structure/index" target="_blank" v-if="formData.idType === 'structure'">ℹ️</a>
             </label>
             <input 
               id="searchId" 

@@ -1,11 +1,16 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Dashboard from '../components/Dashboard.vue';
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="PubliMetrics - Extraction HAL/DBLP">
+	<div class="mb-8">
+		<h2 class="text-2xl font-bold text-slate-900">Extraction et Classement</h2>
+		<p class="text-slate-600 mt-1">
+			Générez des rapports de publications automatiquement classées via CORE et SCIMAGO.
+		</p>
+	</div>
+
+    <!-- On utilise client:load pour que Vue hydrate ce composant dès le chargement de la page -->
+	<Dashboard client:load />
 </Layout>

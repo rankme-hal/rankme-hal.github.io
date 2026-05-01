@@ -16,8 +16,18 @@
     "@astrojs/partytown": "^2.1.7",
     "@astrojs/vue": "^6.0.1",
     "@tailwindcss/vite": "^4.2.4",
+    "@types/markdown-it": "^14.1.2",
+    "@types/papaparse": "^5.5.2",
     "astro": "^6.2.1",
+    "highlight.js": "^11.11.1",
+    "markdown-it": "^14.1.1",
+    "papaparse": "^5.5.3",
+    "string-similarity": "^4.0.4",
     "tailwindcss": "^4.2.4",
     "vue": "^3.5.33"
+  },
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.19",
+    "@types/string-similarity": "^4.0.2"
   }
 }

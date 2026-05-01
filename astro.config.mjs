@@ -9,7 +9,9 @@ import partytown from '@astrojs/partytown';
 // https://astro.build/config
 export default defineConfig({
   integrations: [vue(), mdx(), partytown()],
-
+  legacy: {
+    collectionsBackwardsCompat: true,
+  },
   vite: {
     plugins: [tailwindcss()]
   }

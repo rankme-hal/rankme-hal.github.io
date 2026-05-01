@@ -286,7 +286,7 @@ async function fetchAndAnalyzeHAL(
     const url = `https://api.archives-ouvertes.fr/search/?${params.toString()}`;
     console.log(`\n🔍 Interrogation HAL : ${url}\n`);
  
-    
+
     const response = await fetch(url);
     const data = await response.json();
     docs.push(...data.response.docs);
@@ -519,7 +519,7 @@ ${formatPaperList(categorizedJournals["Unranked"])}
   );
   return markdown;
 }
-  const basePath ="https://rankme.hal.github.io";
+  const basePath ="https://rankme-hal.github.io";
 
 export async function initSJRCache(): Promise<Map<number, Map<string, SJRData>>> {
   const sjrMap2025 = await loadSJR(basePath+"/data/scimagojr_2025.csv");

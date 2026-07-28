@@ -8,6 +8,9 @@
         enter-to-class="opacity-100 translate-y-0">
         <TableOfContents v-if="markdownResult && !isLoading" />
       </Transition>
+      <div class="min-h-screen bg-gray-50 py-12 px-4">
+<!--  <ScholarScraper client:only="vue" />-->
+</div>
     </div>
 <!--    <DblpImporter></DblpImporter>>-->
     <!-- Colonne de droite (Résultats) -->
@@ -37,6 +40,7 @@ import { ref } from 'vue';
 import TableOfContents from './TableOfContents.vue';
 import PublicationForm, { type FilterParams } from './PublicationForm.vue';
 import MdxContentEnhanced from './MdxContentEnhanced.vue'; // <-- Ton composant existant !
+// import ScholarScraper from './ScholarScraper.vue'; // <-- Ton composant existant !
 import {callHal } from '../utils/halstats.ts'
 import {callDblp } from '../utils/dblpstats.ts'
 import { initSJRCache, initCoreCache} from '../utils/sjrAndCoreExtraction.ts'

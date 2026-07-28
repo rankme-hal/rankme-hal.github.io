@@ -37,7 +37,7 @@ async function fetchAndAnalyzeHAL(
 
   const docs = [];
   let numFound = 0;
-  const limit = 5000; // On récupère 5000 publications pour l'exemple
+  const limit = 8000; // On récupère 5000 publications pour l'exemple
   const structIds = idValue.split("||").map((id) => id.trim());
 
   for (const structId of structIds) {
@@ -68,8 +68,7 @@ async function fetchAndAnalyzeHAL(
         break;
     }
 
-    console.error("q", q);
-
+    
     const params = new URLSearchParams({
       q: q,
       //      fq: `structId_i:${structId} AND (docType_s:ART OR docType_s:COMM) and (submittedDateY_i:[${startYar} TO ${endYear}])`,
@@ -82,7 +81,7 @@ async function fetchAndAnalyzeHAL(
       rows: limit.toString(),
     });
     const url = `https://api.archives-ouvertes.fr/search/?${params.toString()}`;
-    console.log(`\n🔍 Interrogation HAL : ${url}\n`);
+    //console.log(`\n🔍 Interrogation HAL : ${url}\n`);
 
     const response = await fetch(url);
     const data = await response.json();
@@ -151,6 +150,7 @@ async function fetchAndAnalyzeHAL(
 
     // 2. GESTION DES CONFÉRENCES (Communications)
     if (doc.docType_s === "COMM") {
+      if (doc.producedDateY_i === undefined || (doc.producedDateY_i >=startYar && doc.producedDateY_i <=endYear)) {
       const confTitle = (doc.conferenceTitle_s || "").toLowerCase().trim();
       let matchedRank = coreMap.get(confTitle); // Match exact sur le titre
       if (!matchedRank) {
@@ -178,6 +178,7 @@ async function fetchAndAnalyzeHAL(
         categorizedConferences["Unranked"].push(doc);
         stats.conferences.unranked++;
       }
+    }
     }
   });
 
